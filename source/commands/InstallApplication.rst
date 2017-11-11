@@ -43,7 +43,7 @@ Unified Logging
 ---------------
 
 - Download operations are performed by **storedownloadd**. You may be able to see information about what it is doing via:
-    - **Subsystem:** com.apple.commerce
+    - **Subsystem:** com.apple.commerce (also contains storeassetd)
     - **Category:** CKLegacy
 
   These lines may be logged::
@@ -60,7 +60,6 @@ Unified Logging
 
     Processing server request: InstallApplication  for: <Device>
     Scheduled InstallApplication from: https://hostname/manifest.plist
-
 
 Caveats (10.12)
 ---------------
