@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>InstalledApplicationList &#8212; Community MDM Documentation 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../http-routingtable.html" title="HTTP Routing Table"
+             >routing table</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Community MDM Documentation 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="
+    ../index.html" class="text-logo">MacAdmins MDM</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">MDM Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apns/index.html">APNS (Apple Push Notification Service)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mdmclient.html">mdmclient</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">Docs</a></li>
+              
+              <li>InstalledApplicationList</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="installedapplicationlist">
+<h1>InstalledApplicationList<a class="headerlink" href="#installedapplicationlist" title="Permalink to this headline">¶</a></h1>
+<dl class="put">
+<dt id="put--mdm">
+<code class="descname">PUT </code><code class="descname">/mdm</code><a class="headerlink" href="#put--mdm" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Example (macOS 10.12.6)</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/mdm</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">x</span>
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+     &lt;key&gt;CommandUUID&lt;/key&gt;
+     &lt;string&gt;4743f890-babd-480d-96f8-d857884cf7f1&lt;/string&gt;
+     &lt;key&gt;RequestType&lt;/key&gt;
+     &lt;string&gt;InstallApplication&lt;/string&gt;
+     &lt;key&gt;Status&lt;/key&gt;
+     &lt;string&gt;Acknowledged&lt;/string&gt;
+     &lt;key&gt;UDID&lt;/key&gt;
+     &lt;string&gt;AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">JSON Parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>CommandUUID</strong> (<em>string</em>) &#8211; the command uuid generated by the MDM service.
+:jsonparam boolean Queued:
+:jsonparam string RequestType: the MDM request type (command type).
+:jsonparam string Status:
+:jsonparam string UDID: the device unique identifier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<ul class="simple">
+<li>Installed applications are not installed packages. Installed Applications only looks at app bundles.</li>
+<li>Identifiers may not be specified on mac. The result is simply a complete list of applications.</li>
+</ul>
+<div class="section" id="notes-by-operating-system">
+<h2>Notes by Operating System<a class="headerlink" href="#notes-by-operating-system" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="x">
+<h3>10.12.x<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Sending an <code class="docutils literal"><span class="pre">Identifiers</span></code> array causes the <strong>mdmclient</strong> process to throw an error.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../http-routingtable.html" title="HTTP Routing Table"
+             >routing table</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Community MDM Documentation 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017, mosen. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

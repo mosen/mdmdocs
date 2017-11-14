@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>InstallApplication &#8212; Community MDM Documentation 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ScheduleOSUpdate" href="ScheduleOSUpdate.html" />
+    <link rel="prev" title="AvailableOSUpdates" href="AvailableOSUpdates.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../http-routingtable.html" title="HTTP Routing Table"
+             >routing table</a> |</li>
+        <li class="right" >
+          <a href="ScheduleOSUpdate.html" title="ScheduleOSUpdate"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="AvailableOSUpdates.html" title="AvailableOSUpdates"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Community MDM Documentation 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">MDM Commands</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="
+    ../index.html" class="text-logo">MacAdmins MDM</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">MDM Commands</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="AvailableOSUpdates.html">AvailableOSUpdates</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">InstallApplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ScheduleOSUpdate.html">ScheduleOSUpdate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apns/index.html">APNS (Apple Push Notification Service)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mdmclient.html">mdmclient</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">Docs</a></li>
+              
+                <li><a href="index.html">MDM Commands</a></li>
+              
+              <li>InstallApplication</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="installapplication">
+<h1>InstallApplication<a class="headerlink" href="#installapplication" title="Permalink to this headline">¶</a></h1>
+<dl class="put">
+<dt id="put--mdm">
+<code class="descname">PUT </code><code class="descname">/mdm</code><a class="headerlink" href="#put--mdm" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Example (macOS 10.12.6)</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/mdm</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/xml</span>
+
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span>
+<span class="nt">&lt;plist</span> <span class="na">version=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;dict&gt;</span>
+     <span class="nt">&lt;key&gt;</span>CommandUUID<span class="nt">&lt;/key&gt;</span>
+     <span class="nt">&lt;string&gt;</span>4743f890-babd-480d-96f8-d857884cf7f1<span class="nt">&lt;/string&gt;</span>
+     <span class="nt">&lt;key&gt;</span>Queued<span class="nt">&lt;/key&gt;</span>
+     <span class="nt">&lt;true/&gt;</span>
+     <span class="nt">&lt;key&gt;</span>RequestType<span class="nt">&lt;/key&gt;</span>
+     <span class="nt">&lt;string&gt;</span>InstallApplication<span class="nt">&lt;/string&gt;</span>
+     <span class="nt">&lt;key&gt;</span>Status<span class="nt">&lt;/key&gt;</span>
+     <span class="nt">&lt;string&gt;</span>Acknowledged<span class="nt">&lt;/string&gt;</span>
+     <span class="nt">&lt;key&gt;</span>UDID<span class="nt">&lt;/key&gt;</span>
+     <span class="nt">&lt;string&gt;</span>AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/plist&gt;</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">JSON Parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>CommandUUID</strong> (<em>string</em>) &#8211; the command uuid generated by the MDM service.</li>
+<li><strong>Queued</strong> (<em>boolean</em>) &#8211; </li>
+<li><strong>RequestType</strong> (<em>string</em>) &#8211; the MDM request type (command type).</li>
+<li><strong>Status</strong> (<em>string</em>) &#8211; </li>
+<li><strong>UDID</strong> (<em>string</em>) &#8211; the device unique identifier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="docutils">
+<dt>macOS 10.12.6 User Agent</dt>
+<dd><code class="docutils literal"><span class="pre">MacAppStore/2.2</span> <span class="pre">(Macintosh;</span> <span class="pre">OS</span> <span class="pre">X</span> <span class="pre">10.12.6;</span> <span class="pre">16G29)</span> <span class="pre">AppleWebKit/2603.3.8</span></code></dd>
+</dl>
+<p>Error when sending iTunesStoreID without PurchaseMethod on macOS:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+       &lt;key&gt;CommandUUID&lt;/key&gt;
+       &lt;string&gt;2c1ed98d-3f82-404c-b855-c11bf57cd3c0&lt;/string&gt;
+       &lt;key&gt;ErrorChain&lt;/key&gt;
+       &lt;array&gt;
+              &lt;dict&gt;
+                     &lt;key&gt;ErrorCode&lt;/key&gt;
+                     &lt;integer&gt;97&lt;/integer&gt;
+                     &lt;key&gt;ErrorDomain&lt;/key&gt;
+                     &lt;string&gt;MDMClientError&lt;/string&gt;
+                     &lt;key&gt;LocalizedDescription&lt;/key&gt;
+                     &lt;string&gt;PurchaseMethod must be 1 &amp;lt;MDMClientError:97&amp;gt;&lt;/string&gt;
+              &lt;/dict&gt;
+       &lt;/array&gt;
+       &lt;key&gt;RejectionReason&lt;/key&gt;
+       &lt;string&gt;PurchaseMethodNotSupported&lt;/string&gt;
+       &lt;key&gt;RequestType&lt;/key&gt;
+       &lt;string&gt;InstallApplication&lt;/string&gt;
+       &lt;key&gt;Status&lt;/key&gt;
+       &lt;string&gt;Error&lt;/string&gt;
+       &lt;key&gt;UDID&lt;/key&gt;
+       &lt;string&gt;AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</pre></div>
+</div>
+<div class="section" id="unified-logging">
+<h2>Unified Logging<a class="headerlink" href="#unified-logging" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Download operations are performed by <strong>storedownloadd</strong>. You may be able to see information about what it is doing via:</dt>
+<dd><ul class="first last simple">
+<li><strong>Subsystem:</strong> com.apple.commerce (also contains storeassetd)</li>
+<li><strong>Category:</strong> CKLegacy</li>
+</ul>
+</dd>
+</dl>
+<p>These lines may be logged:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ISStoreURLOperation</span><span class="p">:</span> <span class="n">Starting</span> <span class="n">URL</span> <span class="n">operation</span> <span class="k">with</span> <span class="n">url</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hostname</span><span class="o">/</span><span class="n">package</span><span class="o">.</span><span class="n">pkg</span> <span class="o">/</span> <span class="n">bagKey</span><span class="o">=</span><span class="p">(</span><span class="n">null</span><span class="p">)</span>
+<span class="o">-</span><span class="p">[</span><span class="n">ISStoreURLOperation</span> <span class="n">_runURLOperation</span><span class="p">]:</span> <span class="n">_addStandardQueryParametersForURL</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hostname</span><span class="o">/</span><span class="n">package</span><span class="o">.</span><span class="n">pkg</span>
+<span class="o">&lt;</span><span class="n">HashedDownloadProvider</span><span class="p">:</span> <span class="mh">0x7fd792a1f110</span><span class="o">&gt;</span><span class="p">:</span> <span class="n">Opening</span> <span class="n">file</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zz</span><span class="o">/</span><span class="n">random</span><span class="o">/</span><span class="n">C</span><span class="o">/</span><span class="n">com</span><span class="o">.</span><span class="n">apple</span><span class="o">.</span><span class="n">appstore</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">package</span><span class="o">.</span><span class="n">pkg</span> <span class="n">returning</span> <span class="n">file</span> <span class="n">descriptor</span> <span class="mi">4</span> <span class="p">(</span><span class="mi">0</span> <span class="n">streamed</span><span class="p">)</span>
+<span class="n">sending</span> <span class="n">status</span> <span class="p">(</span><span class="n">Title</span> <span class="n">of</span> <span class="n">software</span> <span class="n">package</span><span class="p">):</span> <span class="mf">0.000000</span><span class="o">%</span> <span class="p">(</span><span class="mf">0.000000</span><span class="p">)</span>
+<span class="n">sending</span> <span class="n">status</span> <span class="p">(</span><span class="n">Title</span> <span class="n">of</span> <span class="n">software</span> <span class="n">package</span><span class="p">):</span> <span class="mf">0.806452</span><span class="o">%</span> <span class="p">(</span><span class="mf">8.000000</span><span class="p">)</span>
+<span class="o">...</span> <span class="n">etc</span> <span class="o">...</span> <span class="n">up</span> <span class="n">to</span> <span class="mf">1.000000</span><span class="o">%</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Initial command processing and manifest fetch is performed by <strong>mdmclient</strong>, which may log the following lines:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Processing</span> <span class="n">server</span> <span class="n">request</span><span class="p">:</span> <span class="n">InstallApplication</span>  <span class="k">for</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Device</span><span class="o">&gt;</span>
+<span class="n">Scheduled</span> <span class="n">InstallApplication</span> <span class="n">from</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hostname</span><span class="o">/</span><span class="n">manifest</span><span class="o">.</span><span class="n">plist</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="caveats-10-12">
+<h2>Caveats (10.12)<a class="headerlink" href="#caveats-10-12" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">It is impossible to know whether the installation succeeded or failed.</p>
+</li>
+<li><p class="first">If storedownloadd fails, it blocks all further application installs <a class="reference external" href="https://openradar.appspot.com/26517261">OpenRADAR</a>. courtesy of bruienne.
+This can happen due to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>malformed manifest.plist</li>
+<li>incorrect md5 hash(es)</li>
+<li>TLS trust fails fetching manifest</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Sending the same InstallApplication command for the same package twice does download and install it again. You have to
+implement the logic of detecting whether something is already installed.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="simultaneous-downloads">
+<h2>Simultaneous Downloads<a class="headerlink" href="#simultaneous-downloads" title="Permalink to this headline">¶</a></h2>
+<p>Groob writes:</p>
+<p>An <code class="docutils literal"><span class="pre">InstallApplication</span></code> command consists of two parts. A manifest plist and a signed pkg that the manifest points to.
+Once the MDM server queues an <code class="docutils literal"><span class="pre">InstallApplication</span></code>, the mdmclient process will defer the download to storedownloadd which does the following:</p>
+<ol class="arabic simple">
+<li>Sends &#8220;Acknowledged&#8221; or &#8220;NotNow&#8221; to the MDM server.</li>
+<li>Uses HTTP GET request to fetch the manifest.</li>
+<li>Caches the manifest locally. future requests skip step 1 and use the local cache.
+(I haven&#8217;t done any investigation into how the cache is invalidated, but that&#8217;s not important here.</li>
+</ol>
+<p>What&#8217;s important is that there are two initial requests for a single InstallApplication command.
+- uses HTTP GET request to download the .pkg
+- installs the pkg.
+We can observe this action in the logs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># client log</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">29</span> <span class="mi">21</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mf">02.362540</span><span class="o">-</span><span class="mi">0400</span> <span class="mh">0x4f27</span>     <span class="n">Default</span>     <span class="mh">0x0</span>                  <span class="mi">616</span>    <span class="n">mdmclient</span><span class="p">:</span> <span class="p">[</span><span class="n">com</span><span class="o">.</span><span class="n">apple</span><span class="o">.</span><span class="n">ManagedClient</span><span class="o">.</span><span class="n">InstallApplication</span><span class="p">]</span> <span class="n">Scheduled</span> <span class="n">InstallApplication</span> <span class="n">from</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="o">.</span><span class="n">micromdm</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">munkitools</span><span class="o">.</span><span class="n">plist</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">29</span> <span class="mi">21</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mf">03.892894</span><span class="o">-</span><span class="mi">0400</span> <span class="mh">0x4f83</span>     <span class="n">Default</span>     <span class="mh">0x0</span>                  <span class="mi">621</span>    <span class="n">storedownloadd</span><span class="p">:</span> <span class="p">(</span><span class="n">StoreFoundation</span><span class="p">)</span> <span class="p">[</span><span class="n">com</span><span class="o">.</span><span class="n">apple</span><span class="o">.</span><span class="n">commerce</span><span class="o">.</span><span class="n">CKLegacy</span><span class="p">]</span> <span class="n">ISStoreURLOperation</span><span class="p">:</span> <span class="n">Starting</span> <span class="n">URL</span> <span class="n">operation</span> <span class="k">with</span> <span class="n">url</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="o">.</span><span class="n">micromdm</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">munkitools</span><span class="o">.</span><span class="n">pkg</span> <span class="o">/</span> <span class="n">bagKey</span><span class="o">=</span><span class="p">(</span><span class="n">null</span><span class="p">)</span>
+
+<span class="c1"># server log</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">01</span><span class="o">/</span><span class="n">May</span><span class="o">/</span><span class="mi">2017</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">58</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="s2">&quot;GET /repo/munkitools.plist HTTP/1.1&quot;</span> <span class="mi">200</span> <span class="mi">754</span> <span class="s2">&quot;&quot;</span> <span class="s2">&quot;MacAppStore/2.2 (Macintosh; OS X 10.12.3;</span>
+<span class="mi">16</span><span class="n">D30</span><span class="p">)</span> <span class="n">AppleWebKit</span><span class="o">/</span><span class="mf">2602.4</span><span class="o">.</span><span class="mi">8</span><span class="s2">&quot;</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">01</span><span class="o">/</span><span class="n">May</span><span class="o">/</span><span class="mi">2017</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="s2">&quot;GET /repo/munkitools.pkg HTTP/1.1&quot;</span> <span class="mi">200</span> <span class="mi">730798</span> <span class="s2">&quot;&quot;</span> <span class="s2">&quot;MacAppStore/2.2 (Macintosh; OS X 10.</span>
+</pre></div>
+</div>
+<p>The Problem:</p>
+<p>Queueing one <code class="docutils literal"><span class="pre">InstallApplication</span></code> command before the previous one completes will most likely cause only one install to actually succeed.
+Here&#8217;s what I&#8217;m seeing in the logs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># acknowledged two scheduled IA commands</span>
+<span class="n">connected</span> <span class="n">udid</span><span class="o">=</span><span class="mi">4</span><span class="n">A7A3EC2</span><span class="o">-</span><span class="mi">6755</span><span class="o">-</span><span class="mi">4113</span><span class="o">-</span><span class="n">A5AF</span><span class="o">-</span><span class="n">AC10574D953A</span> <span class="nb">type</span><span class="o">=</span><span class="n">InstallApplication</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">Acknowledged</span>
+<span class="n">connected</span> <span class="n">udid</span><span class="o">=</span><span class="mi">4</span><span class="n">A7A3EC2</span><span class="o">-</span><span class="mi">6755</span><span class="o">-</span><span class="mi">4113</span><span class="o">-</span><span class="n">A5AF</span><span class="o">-</span><span class="n">AC10574D953A</span> <span class="nb">type</span><span class="o">=</span><span class="n">InstallApplication</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">Acknowledged</span>
+
+<span class="c1">#</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">01</span><span class="o">/</span><span class="n">May</span><span class="o">/</span><span class="mi">2017</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">58</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="s2">&quot;GET /repo/package-A.plist HTTP/1.1&quot;</span> <span class="mi">200</span> <span class="mi">758</span> <span class="s2">&quot;&quot;</span> <span class="s2">&quot;MacAppStore/2.2 (Macintosh; OS X 10.12.3; 16D30) AppleWebKit/2602.4.8&quot;</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">01</span><span class="o">/</span><span class="n">May</span><span class="o">/</span><span class="mi">2017</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">58</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="s2">&quot;GET /repo/package-B.plist HTTP/1.1&quot;</span> <span class="mi">200</span> <span class="mi">754</span> <span class="s2">&quot;&quot;</span> <span class="s2">&quot;MacAppStore/2.2 (Macintosh; OS X 10.12.3; 16D30) AppleWebKit/2602.4.8&quot;</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">01</span><span class="o">/</span><span class="n">May</span><span class="o">/</span><span class="mi">2017</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="s2">&quot;GET /repo/package-A.pkg HTTP/1.1&quot;</span> <span class="mi">200</span> <span class="mi">730798</span> <span class="s2">&quot;&quot;</span> <span class="s2">&quot;MacAppStore/2.2 (Macintosh; OS X 10.</span>
+<span class="c1"># and done. package-B.pkg is never downloaded.</span>
+</pre></div>
+</div>
+<p>The storedownloadd is scheduled to download two or more applications, but it ends up losing track of things and only downloads one.
+This problem doesn&#8217;t happen if both installs are being repeated and the plist is not being downloaded.
+The problem also doesn&#8217;t happen if the <code class="docutils literal"><span class="pre">InstallApplication</span></code> commands are spaced out such that the first install is completed before the second one starts.</p>
+</div>
+<div class="section" id="os-specific-notes">
+<h2>OS Specific Notes<a class="headerlink" href="#os-specific-notes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="x-x-x-10-12-6">
+<h3>x.x.x - 10.12.6<a class="headerlink" href="#x-x-x-10-12-6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>A malformed manifest causes storedownloadd not to process any further <strong>InstallApplication</strong> commands until reboot.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>10.12.0 - 10.12.3<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>InstallApplication</strong> will not work before you send a response to <code class="docutils literal"><span class="pre">AwaitDeviceConfiguration</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="x">
+<h3>10.11.x<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>InstallApplication</strong> only works if there is a currently logged in user session.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://developer.apple.com/library/content/documentation/Miscellaneous/Reference/MobileDeviceManagementProtocolRef/3-MDM_Protocol/MDM_Protocol.html#//apple_ref/doc/uid/TP40017387-CH3-SW52">Official Documentation</a>.</li>
+<li><a class="reference external" href="https://github.com/micromdm/micromdm/issues/151#issuecomment-298535040">MicroMDM Issue #151 groob</a>.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="AvailableOSUpdates.html" title="previous chapter (use the left arrow)">AvailableOSUpdates</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="ScheduleOSUpdate.html" title="next chapter (use the right arrow)">ScheduleOSUpdate</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../http-routingtable.html" title="HTTP Routing Table"
+             >routing table</a> |</li>
+        <li class="right" >
+          <a href="ScheduleOSUpdate.html" title="ScheduleOSUpdate"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="AvailableOSUpdates.html" title="AvailableOSUpdates"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Community MDM Documentation 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >MDM Commands</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017, mosen. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>
