@@ -8,7 +8,7 @@ InstallApplication
     .. sourcecode:: http
 
        PUT /mdm HTTP/1.1
-       Content-Type: x
+       Content-Type: text/xml
 
        <?xml version="1.0" encoding="UTF-8"?>
        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -36,6 +36,37 @@ InstallApplication
 
 macOS 10.12.6 User Agent
     ``MacAppStore/2.2 (Macintosh; OS X 10.12.6; 16G29) AppleWebKit/2603.3.8``
+
+
+Error when sending iTunesStoreID without PurchaseMethod on macOS::
+
+       <?xml version="1.0" encoding="UTF-8"?>
+       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+       <plist version="1.0">
+       <dict>
+              <key>CommandUUID</key>
+              <string>2c1ed98d-3f82-404c-b855-c11bf57cd3c0</string>
+              <key>ErrorChain</key>
+              <array>
+                     <dict>
+                            <key>ErrorCode</key>
+                            <integer>97</integer>
+                            <key>ErrorDomain</key>
+                            <string>MDMClientError</string>
+                            <key>LocalizedDescription</key>
+                            <string>PurchaseMethod must be 1 &lt;MDMClientError:97&gt;</string>
+                     </dict>
+              </array>
+              <key>RejectionReason</key>
+              <string>PurchaseMethodNotSupported</string>
+              <key>RequestType</key>
+              <string>InstallApplication</string>
+              <key>Status</key>
+              <string>Error</string>
+              <key>UDID</key>
+              <string>AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA</string>
+       </dict>
+       </plist>
 
 
 
@@ -71,7 +102,8 @@ Caveats (10.12)
     - incorrect md5 hash(es)
     - TLS trust fails fetching manifest
 
-
+- Sending the same InstallApplication command for the same package twice does download and install it again. You have to
+  implement the logic of detecting whether something is already installed.
 
 Simultaneous Downloads
 ----------------------
