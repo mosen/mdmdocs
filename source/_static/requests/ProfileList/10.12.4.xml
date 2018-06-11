@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+
+    <dict>
+        <key>CommandUUID</key>
+        <string>fc144646-538f-42f0-843a-91bf16e4af0e</string>
+        <key>ProfileList</key>
+
+        <array>
+
+            <dict>
+                <key>HasRemovalPasscode</key>
+                <false/>
+                <key>IsEncrypted</key>
+                <false/>
+
+                <key>PayloadContent</key>
+
+                <array>
+
+                    <dict>
+                        <key>PayloadDisplayName</key>
+                        <string>MDM
+                            SCEP
+                        </string>
+                        <key>PayloadIdentifier</key>
+                        <string>
+                            dev.commandment.mdm-scep
+                        </string>
+                        <key>PayloadType</key>
+                        <string>
+                            com.apple.security.scep
+                        </string>
+                        <key>PayloadUUID</key>
+                        <string>
+                            5d4a2d8e-dc3c-4f20-8935-7486fa68484d
+                        </string>
+
+                    </dict>
+
+
+                    <dict>
+                        <key>PayloadDisplayName</key>
+                        <string>Device Configuration and
+                            Management
+                        </string>
+                        <key>PayloadIdentifier</key>
+                        <string>
+                            dev.commandment.mdm
+                        </string>
+                        <key>PayloadType</key>
+                        <string>
+                            com.apple.mdm
+                        </string>
+                        <key>PayloadUUID</key>
+                        <string>
+                            e30956c5-acaf-4518-9d8f-ccbee7581adb
+                        </string>
+
+                    </dict>
+
+
+                </array>
+
+                <key>PayloadDescription</key>
+                <string>Enrolls your device for Mobile Device
+                    Management
+                </string>
+                <key>PayloadDisplayName</key>
+                <string>Commandment Enrollment
+                    Profile
+                </string>
+                <key>PayloadIdentifier</key>
+                <string>dev.commandment.enroll</string>
+                <key>
+                    PayloadOrganization
+                </key>
+                <string>Commandment Inc</string>
+                <key>
+                    PayloadRemovalDisallowed
+                </key>
+                <false/>
+                <key>PayloadUUID</key>
+                <string>
+                    dd44cb59-962b-4784-bd82-e89a2592da52
+                </string>
+                <key>PayloadVersion</key>
+                <integer>
+                    1
+                </integer>
+                <key>SignerCertificates</key>
+                <array/>
+
+            </dict>
+
+        </array>
+
+        <key>RequestType</key>
+        <string>ProfileList</string>
+        <key>Status</key>
+        <string>Acknowledged</string>
+        <key>
+            UDID
+        </key>
+        <string>2F6DE437-7C14-5735-85B4-DC6B365BCAF1</string>
+
+    </dict>
+
+
+</plist>
