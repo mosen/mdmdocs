@@ -122,6 +122,8 @@ dep
 dep nag
 ^^^^^^^
 
+.. note:: Deprecated as of macOS 10.13 High Sierra
+
 Usage::
 
      /usr/libexec/mdmclient dep nag
@@ -242,3 +244,55 @@ testFDEKeyRotation
 ^^^^^^^^^^^^^^^^^^
 
 
+Preferences
+-----------
+
+Preference domain
+	``com.apple.mdmclient``
+
+CrashOnInstallProfile
+	Does what it says on the box
+
+KeepInstalledProfiles
+	Keep a copy of profiles sent from server? also at :file:`/var/db/ConfigurationProfiles/Settings/MDM_KeepInstalledProfiles`
+
+
+or ``com.apple.ManagedClient``
+
+``com.apple.security.FDERecovery``
+
+POSTServerURLOverride
+
+
+AnyUser + CurrentHost
+
+MDM Profile
+-----------
+
+com.apple.mdm
+
+ServerCapabilities seems to reference "com.apple.mdm.version.1" or "version.2"
+
+
+
+MDM Simulator
+-------------
+
+
+
+- The file :file:`/var/db/ConfigurationProfiles/Settings/MDM_EnableSim` must exist, touch should be enough.
+- Also checks for the preference key ``MDMSimulator:EnableSim`` in the preference domain ``com.apple.mdmclient``.
+
+``defaults -currentHost write com.apple.mdmclient MDMSimulator '{ "EnableSim" = TRUE; }'``
+
+
+- :file:`/var/db/ConfigurationProfiles/MDMSimulator/SetupAssistant_Device`
+- :file:`/var/db/ConfigurationProfiles/MDMSimulator/SetupAssistant_Device_Results`
+- :file:`/var/db/ConfigurationProfiles/MDMSimulator/SetupAssistant_User`
+
+
+The ``mdmsim`` command may expect some options:
+Must be run as root.
+
+-f <request file?>
+-o <output path>

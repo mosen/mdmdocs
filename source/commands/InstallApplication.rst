@@ -68,6 +68,15 @@ Error when sending iTunesStoreID without PurchaseMethod on macOS::
        </dict>
        </plist>
 
+Errors
+------
+
+These errors are specific to InstallApplication:
+
+- **MDMClientError**: Unexpected error processing ManifestURL
+- **MDMClientError**: Only one of iTunesStoreID or Identifier may be specified
+- **MDMClientError**: PurchaseMethod must be 1
+- **MDMClientError**: iTunesStoreID not provided
 
 
 Unified Logging
